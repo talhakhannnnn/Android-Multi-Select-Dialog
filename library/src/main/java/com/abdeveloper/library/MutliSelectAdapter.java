@@ -124,6 +124,14 @@ class MutliSelectAdapter extends RecyclerView.Adapter<MutliSelectAdapter.MultiSe
 
         this.notifyDataSetChanged();
     }
+    
+    public void selectNone() {
+        for(int i = 0; i < mDataSet.size(); i++) {
+            mDataSet.get(i).setSelected(false);
+        }
+
+        this.notifyDataSetChanged();
+    }
 
     /*//get selected name string seperated by coma
     public String getDataString() {
