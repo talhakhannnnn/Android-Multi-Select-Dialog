@@ -43,15 +43,21 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
     private String minSelectionMessage = null;
     private int maxSelectionLimit = 0;
     private String maxSelectionMessage = null;
-
+    private int themeID = 0;	
     private String selectAllItemText = null;
     private boolean select_selectAllItemOnCreate = false;
 
+    public MultiSelectDialog (){}
+    
+    public MultiSelectDialog(int themeId){
+	    themeID = themeid;
+    }
+	
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        final Dialog dialog = new Dialog(getActivity());
+        final Dialog dialog = new Dialog(getActivity(), themeID);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFlags(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN,
@@ -107,9 +113,13 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean selected) {
                     if(selected) {
-                        mutliSelectAdapter.selectAll();
-                    } else mutliSelectAdapter.selectNone();
-                }
+                        mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), true);
+        		mrecyclerView.setAdapter(mutliSelectAdapter);
+                    } else {
+			    	mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), false);
+        			mrecyclerView.setAdapter(mutliSelectAdapter);
+		    }
+		}
             });
         }
 
