@@ -114,7 +114,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
                 public void onCheckedChanged(CompoundButton compoundButton, boolean selected) {
 			select(selected);    
                         mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), selectAllCheckBox);
-        		mrecyclerView.setAdapter(mutliSelectAdapter);
+        		adapter.notifyDataSetChanged();
 		}
             });
         }
