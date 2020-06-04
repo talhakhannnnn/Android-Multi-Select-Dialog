@@ -50,7 +50,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
     public MultiSelectDialog (){}
     
     public MultiSelectDialog(int themeId){
-	    themeID = themeid;
+	    themeID = themeId;
     }
 	
     @NonNull
