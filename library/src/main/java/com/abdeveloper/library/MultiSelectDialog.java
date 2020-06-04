@@ -66,7 +66,7 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
         dialog.setContentView(R.layout.custom_multi_select);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-        RecyclerViewEmptySupport mrecyclerView =  dialog.findViewById(R.id.recycler_view);
+        final RecyclerViewEmptySupport mrecyclerView =  dialog.findViewById(R.id.recycler_view);
         SearchView searchView =  dialog.findViewById(R.id.search_view);
         dialogTitle =  dialog.findViewById(R.id.title);
         dialogSubmit =  dialog.findViewById(R.id.done);
