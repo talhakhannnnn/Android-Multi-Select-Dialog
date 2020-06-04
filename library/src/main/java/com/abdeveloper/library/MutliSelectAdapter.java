@@ -117,49 +117,6 @@ class MutliSelectAdapter extends RecyclerView.Adapter<MutliSelectAdapter.MultiSe
         return false;
     }
 
-    public void selectAll() {
-        for(int i = 0; i < mDataSet.size(); i++) {
-            mDataSet.get(i).setSelected(true);
-        }
-
-        this.notifyDataSetChanged();
-    }
-    
-    public void selectNone() {
-        for(int i = 0; i < mDataSet.size(); i++) {
-            mDataSet.get(i).setSelected(false);
-        }
-
-        this.notifyDataSetChanged();
-    }
-
-    /*//get selected name string seperated by coma
-    public String getDataString() {
-        String data = "";
-        for (int i = 0; i < mDataSet.size(); i++) {
-            if (checkForSelection(mDataSet.get(i).getId())) {
-                data = data + ", " + mDataSet.get(i).getName();
-            }
-        }
-        if (data.length() > 0) {
-            return data.substring(1);
-        } else {
-            return "";
-        }
-    }
-    //get selected name ararylist
-    public ArrayList<String> getSelectedNameList() {
-        ArrayList<String> names = new ArrayList<>();
-        for (int i = 0; i < mDataSet.size(); i++) {
-            if (checkForSelection(mDataSet.get(i).getId())) {
-                names.add(mDataSet.get(i).getName());
-            }
-        }
-        //  return names.toArray(new String[names.size()]);
-        return names;
-    }*/
-
-
     @Override
     public int getItemCount() {
         return mDataSet.size();
