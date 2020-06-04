@@ -112,13 +112,9 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
             selectAllCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean selected) {
-                    if(selected) {
-                        mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), true);
+			select(selected);    
+                        mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), selectAllCheckBox);
         		mrecyclerView.setAdapter(mutliSelectAdapter);
-                    } else {
-			    	mutliSelectAdapter = new MutliSelectAdapter(mainListOfAdapter, getContext(), false);
-        			mrecyclerView.setAdapter(mutliSelectAdapter);
-		    }
 		}
             });
         }
@@ -355,5 +351,10 @@ public class MultiSelectDialog extends AppCompatDialogFragment implements Search
         void onSelected(ArrayList<Integer> selectedIds, ArrayList<String> selectedNames, String commonSeperatedData);
         void onCancel();
     }
-
+	
+    public void select(boolean selection) {
+        for(int i = 0; i < mainListOfAdapter.size(); i++) {
+            mainListOfAdapter.get(i).setSelected(selection);
+        }
+    }
 }
